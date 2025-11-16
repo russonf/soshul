@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soshul - Social Ads That Actually Work</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #fff;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 5px solid #000;
+            padding: 20px 0;
+            background: #ffed4e;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            background: #ffed4e;
+            padding: 0 10px;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffed4e;
+            color: #000;
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: 900;
+            text-decoration: none;
+            border: 5px solid #000;
+            box-shadow: 8px 8px 0 #000;
+            text-transform: uppercase;
+            transition: all 0.1s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            box-shadow: 4px 4px 0 #000;
+            transform: translate(4px, 4px);
+        }
+
+        /* Section styling */
+        section {
+            padding: 80px 0;
+            border-bottom: 5px solid #000;
+        }
+
+        section:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 5px solid #000;
+            padding: 40px;
+            box-shadow: 8px 8px 0 #000;
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .service-card .price {
+            font-size: 36px;
+            font-weight: 900;
+            color: #000;
+            margin: 20px 0;
+            background: #ffed4e;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .service-card ul li {
+            padding: 10px 0;
+            border-bottom: 2px solid #000;
+            font-weight: 600;
+        }
+
+        .service-card ul li:before {
+            content: "→ ";
+            font-weight: 900;
+        }
+
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step {
+            background: #fff;
+            border: 5px solid #000;
+            padding: 30px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            background: #ffed4e;
+            border: 5px solid #000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        .step h3 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .headshot {
+            border: 5px solid #000;
+            box-shadow: 8px 8px 0 #000;
+            width: 200px;
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 14px;
+        }
+
+        .headshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .about-text strong {
+            background: #ffed4e;
+            padding: 2px 6px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin-top: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 900;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 5px solid #000;
+            font-size: 16px;
+            font-family: inherit;
+            background: #fff;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            background: #fffef0;
+        }
+
+        .success-message {
+            background: #ffed4e;
+            border: 5px solid #000;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-weight: 900;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Soshul</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>More Sales from <span>Facebook & Google</span> for Small Businesses in Norfolk</h1>
+            <p>I run the ads for a handful of local businesses. No massive client roster, no juniors on your account. Just me - someone who's spent over £2 million on ads in the last year alone.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Pick One</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>I Run Your Ads</h3>
+                    <div class="price">£1,500-2k/mo</div>
+                    <ul>
+                        <li>You send me your images/videos</li>
+                        <li>I set up and run your Facebook/Insta & Google campaigns</li>
+                        <li>I'll tell you if your website/offer needs fixing (most do)</li>
+                        <li>You get a report every week showing what's working</li>
+                        <li>Monthly calls to discuss strategy</li>
+                        <li>My phone number - call when you need to</li>
+                        <li>Limited to 8-10 businesses max</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>I Run Everything</h3>
+                    <div class="price">£3-4k/mo</div>
+                    <ul>
+                        <li>Everything from the first option</li>
+                        <li>Plus I make the images/videos for your ads</li>
+                        <li>However many we need each month to keep testing</li>
+                        <li>Could be 5, could be 20 - depends what's working</li>
+                        <li>Photos, graphics, short videos, whatever gets results</li>
+                        <li>I'll also look at your landing pages and offer structure</li>
+                        <li>More frequent check-ins (as needed, not just monthly)</li>
+                        <li>Limited to 3-5 businesses max</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>We Talk</h3>
+                    <p>Coffee, phone call, whatever works. I want to understand your business and see if I can actually help. If I can't, I'll tell you straight.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>I Build a Plan</h3>
+                    <p>Here's what I think we should test, here's the budget, here's what success looks like. You either like it or you don't - no hard sell.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>We Launch</h3>
+                    <p>Ads go live. You get a report every week. No jargon - just what's working, what's not, what we're changing.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>We Keep Going</h3>
+                    <p>Monthly calls to review and plan. Between calls, you can message or call me whenever. I actually answer my phone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Why Me?</h2>
+            <div class="about-content">
+                <div class="headshot">
+                    <img src="headshot.jpg" alt="Your Name" id="headshotImg" style="display:none;">
+                    <span id="headshotPlaceholder">Add your photo here</span>
+                </div>
+                <div class="about-text">
+                    <p>I've spent <strong>over £2 million on Facebook/Insta and Google ads</strong> in the past year. I know what works because I'm in the thick of it every day - testing, optimising, watching what actually converts and what burns money.</p>
+                    <p>Soshul isn't a traditional agency. I don't have an office full of people. It's just me, based in Norwich, working with a small number of businesses - mostly local, mostly small. That's deliberate.</p>
+                    <p>I got sick of watching local businesses get burned by agencies charging big retainers, then putting a junior on their account. You ring up, you get an account manager. That account manager has 30 other clients. Nobody's really paying attention to your business.</p>
+                    <p><strong>That's not how this works.</strong> You get my phone number. You call, I answer. You're not one of 100 clients - you're one of maybe 10. Big difference.</p>
+                    <p><strong>Fair warning:</strong> I only work with businesses I genuinely think I can help. If we talk and I don't think ads will work for you, or your offer needs fixing first, I'll tell you straight. I'd rather turn down work than take your money and deliver nothing. If we're the right fit though, you'll get more attention than any big agency could ever give you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Alright, Let's Talk</h2>
+            <div class="success-message" id="successMessage">
+                Cheers - I'll get back to you within 24 hours.
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="budget">What Do You Currently Spend on Ads Each Month?</label>
+                    <select id="budget" name="budget" required>
+                        <option value="">Pick one</option>
+                        <option value="0-1k">Nothing yet / Under £1k</option>
+                        <option value="1k-5k">£1k - £5k</option>
+                        <option value="5k-10k">£5k - £10k</option>
+                        <option value="10k+">£10k+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell Me About Your Business</label>
+                    <textarea id="message" name="message" placeholder="What do you sell? Who buys it? What are you trying to achieve?" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Soshul. Norwich, Norfolk. <a href="mailto:hello@soshul.co" style="color: #ffed4e; text-decoration: none;">hello@soshul.co</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Handle headshot image
+        const headshotImg = document.getElementById('headshotImg');
+        const headshotPlaceholder = document.getElementById('headshotPlaceholder');
+        
+        headshotImg.onload = function() {
+            headshotImg.style.display = 'block';
+            headshotPlaceholder.style.display = 'none';
+        };
+        
+        headshotImg.onerror = function() {
+            headshotImg.style.display = 'none';
+            headshotPlaceholder.style.display = 'flex';
+        };
+
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create mailto link with form data
+            const subject = encodeURIComponent(`New Soshul Inquiry from ${data.name}`);
+            const body = encodeURIComponent(
+                `Name: ${data.name}\n` +
+                `Email: ${data.email}\n` +
+                `Company: ${data.company}\n` +
+                `Current Ad Spend: ${data.budget}\n\n` +
+                `Message:\n${data.message}`
+            );
+            
+            window.location.href = `mailto:hello@soshul.co?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 5000);
+        });
+
+        /
